@@ -11,7 +11,7 @@ export class CoffesController {
   //     return 'This actions return #[id]coffees'
   // }
   @Get(':id')
-  findOne(@Param(':id') id: string) {
+  findOne(@Param('id') id: string) {
     return `This action returns #${id} coffee`;
   }
 }

@@ -1,12 +1,12 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post, Res,Delete } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post, Res,Delete, Query  } from '@nestjs/common';
 import { response } from 'express';
 
 @Controller('coffees')
 export class CoffesController {
- @Get()
-getAll(@Res() response) {
-  response.status(203).send('This is a get api that returns basic');
-}
+//  @Get()
+// getAll(@Res() response) {
+//   response.status(203).send('This is a get api that returns basic');
+// }
 
 @Get('flavours')
 getFlavours() {
@@ -32,5 +32,10 @@ getFlavours() {
   @Delete(':id')
   remove(@Param('id') id:string){
     return `This action removes #${id} coffee.`;
+  }
+  @Get()
+  findAll(@Query() paginationQuery){
+      const {limit, offset} = paginationQuery;
+    return `This action returns all coffees. ${limit} and ${offset}`;
   }
 }

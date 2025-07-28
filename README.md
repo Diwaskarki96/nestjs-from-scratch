@@ -105,3 +105,17 @@ A hands-on repository to explore and practice the fundamentals of NestJS — fro
 # check command or things that can be donr by nest --help 
 
 # start a new project:- nest new
+
+# anything that starts with @ is decorator like @Controller(), @Body(), @Injectable(), @Param() etc
+  # Decorator
+    # @Controller() → marks a class as a controller.
+
+    # @Get() → marks a method to handle GET requests.
+
+    # @Injectable() → tells Nest this class can be injected (used as a service).
+
+    # @Body() → gets data from the request body.
+
+    # @Param() → gets data from URL parameters.
+
+ 

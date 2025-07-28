@@ -1,5 +1,8 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post, Res,Delete, Query  } from '@nestjs/common';
+import { create } from 'domain';
 import { response } from 'express';
+import { CoffeesService } from 'src/coffees/coffees.service';
+import { Coffee } from 'src/coffees/entites/coffee.entity';
 
 @Controller('coffees')
 export class CoffesController {
@@ -8,34 +11,55 @@ export class CoffesController {
 //   response.status(203).send('This is a get api that returns basic');
 // }
 
-@Get('flavours')
-getFlavours() {
-  return 'This is a get api that returns all the coffees';
-}
-  // @Get(':id')
-  // findOne(){
-  //     return 'This actions return #[id]coffees'
-  // }
+// @Get('flavours')
+// getFlavours() {
+//   return 'This is a get api that returns all the coffees';
+// }
+//   // @Get(':id')
+//   // findOne(){
+//   //     return 'This actions return #[id]coffees'
+//   // }
+//   @Get(':id')
+//   findOne(@Param('id') id: string) {
+//     return `This action returns #${id} coffee`;
+//   }
+//   @Post()
+//   @HttpCode(HttpStatus.GONE)
+//   create(@Body() body){
+//     return body;
+//   }
+//   @Patch(':id')
+//   update(@Param('id') id:string,@Body() body){
+//     return `This action updates #${id} coffee.`;
+//   }
+//   @Delete(':id')
+//   remove(@Param('id') id:string){
+//     return `This action removes #${id} coffee.`;
+//   }
+//   @Get()
+//   findAll(@Query() paginationQuery){
+//       const {limit, offset} = paginationQuery;
+//     return `This action returns all coffees. ${limit} and ${offset}`;
+//   }
+  constructor(private readonly coffeeService: CoffeesService) {}
+  @Get()
+  findAll() {
+    return this.coffeeService.findAll();
+  }
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return `This action returns #${id} coffee`;
+  findOne(@Param('id') id:number){
+    return this.coffeeService.findOne(id);
   }
   @Post()
-  @HttpCode(HttpStatus.GONE)
-  create(@Body() body){
-    return body;
+  create(@Body() body:Coffee){
+    return this.coffeeService.create(body)
   }
   @Patch(':id')
-  update(@Param('id') id:string,@Body() body){
-    return `This action updates #${id} coffee.`;
-  }
+    update(@Param('id') id:number, @Body() body:Coffee){
+      return this.coffeeService.update(id,body)
+    }
   @Delete(':id')
-  remove(@Param('id') id:string){
-    return `This action removes #${id} coffee.`;
-  }
-  @Get()
-  findAll(@Query() paginationQuery){
-      const {limit, offset} = paginationQuery;
-    return `This action returns all coffees. ${limit} and ${offset}`;
+  remove(@Param('id') id:number){
+    return this.coffeeService.remove(id)
   }
 }

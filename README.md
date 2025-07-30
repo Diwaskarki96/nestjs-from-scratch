@@ -118,4 +118,30 @@ A hands-on repository to explore and practice the fundamentals of NestJS — fro
 
     # @Param() → gets data from URL parameters.
 
- 
+ # Modules:- A module is like a folder in your app that groups related things together (like controllers and services).
+
+  # Think of it as a box that contains:
+
+    # Controllers (handle requests like GET, POST)
+
+    # Services (do the actual work or logic)
+
+    # Other modules (if needed)
+# A module in NestJS is like a container or folder where related parts of your app live together — like controllers, services, etc.
+
+    # Imagine you're building a house:
+
+    # The Kitchen is one module.
+
+    # The Living Room is another module.
+
+    # Each room has its own tools and rules, but they all come together to form the whole house.
+# to create new module:- nest g module coffees(name)
+ # Inside Module
+    # controllers | Handles requests | Like a receptionist taking customer requests | @Get(), @Post()
+
+    # providers:- Contains logic (usually services) | Like workers doing the actual job | 	UserService, DatabaseService
+
+    # imports:- Uses other modules | Like borrowing tools from neighbors | imports: [AuthModule]
+    
+    # exports:- Share things with others | Like giving your tools to others to use | exports: [UserService]

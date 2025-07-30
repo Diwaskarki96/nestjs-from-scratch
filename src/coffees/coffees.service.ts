@@ -31,7 +31,8 @@ export class CoffeesService {
     update(id: number, coffee: Coffee) {
         const existingCoffee = this.findOne(id);
         if(existingCoffee){
-
+Object.assign(existingCoffee, coffee);
+            return existingCoffee;
         }
         
     }

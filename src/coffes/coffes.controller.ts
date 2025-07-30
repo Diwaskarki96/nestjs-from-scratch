@@ -2,6 +2,8 @@ import { Body, Controller, Get, HttpCode, HttpStatus, Param, Patch, Post, Res,De
 import { create } from 'domain';
 import { response } from 'express';
 import { CoffeesService } from 'src/coffees/coffees.service';
+import { CreateCoffeeDto } from 'src/coffees/dto/create-coffee.dto';
+import { UpdateCoffeeDto } from 'src/coffees/dto/update-coffee.dto';
 import { Coffee } from 'src/coffees/entites/coffee.entity';
 
 @Controller('coffees')
@@ -51,12 +53,12 @@ export class CoffesController {
     return this.coffeeService.findOne(id);
   }
   @Post()
-  create(@Body() body:Coffee){
-    return this.coffeeService.create(body)
+  create(@Body() createBodyDto:CreateCoffeeDto){
+    return this.coffeeService.create(createBodyDto)
   }
   @Patch(':id')
-    update(@Param('id') id:number, @Body() body:Coffee){
-      return this.coffeeService.update(id,body)
+    update(@Param('id') id:number, @Body() updateCoffeeDto:UpdateCoffeeDto){
+      return this.coffeeService.update(id,updateCoffeeDto)
     }
   @Delete(':id')
   remove(@Param('id') id:number){

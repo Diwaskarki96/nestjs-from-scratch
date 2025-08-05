@@ -150,3 +150,5 @@ A hands-on repository to explore and practice the fundamentals of NestJS — fro
  nest g class coffees/dto/create-coffee.dto --no-spec
 
  # A DTO is mainly used to define the structure and type of the data you're expecting — like a form or a contract.
+  
+# export class UpdateCoffeeDto extends PartialType(CreateCoffeeDto) {} :- to use the same schema from createcoffeedto. to reduce repeat code.  

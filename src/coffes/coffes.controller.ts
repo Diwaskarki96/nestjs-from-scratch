@@ -50,7 +50,7 @@ export class CoffesController {
   }
   @Get(':id')
   findOne(@Param('id') id:number){
-    return this.coffeeService.findOne(id);
+    return this.coffeeService.findOne(+id);
   }
   @Post()
   create(@Body() createBodyDto:CreateCoffeeDto){

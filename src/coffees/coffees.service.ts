@@ -27,7 +27,7 @@ export class CoffeesService {
     }
     create(coffee: Coffee) {
         this.coffees.push(coffee);
-        // return coffee;
+     return coffee;
     }
     update(id: number, updateCoffeeDto: UpdateCoffeeDto) {
         const existingCoffee = this.findOne(id);

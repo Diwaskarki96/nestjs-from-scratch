@@ -152,3 +152,9 @@ A hands-on repository to explore and practice the fundamentals of NestJS — fro
  # A DTO is mainly used to define the structure and type of the data you're expecting — like a form or a contract.
   
 # export class UpdateCoffeeDto extends PartialType(CreateCoffeeDto) {} :- to use the same schema from createcoffeedto. to reduce repeat code.  
+
+# For validation:-
+ app.useGlobalPipes(new ValidationPipe({
+   whitelist:true, //if the schema is not defined in dto then it doesn't includes while post
+   forbidNonWhitelisted:true // shows error is the schema is not involved in dto
+  }))

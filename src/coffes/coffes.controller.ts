@@ -54,6 +54,7 @@ export class CoffesController {
   }
   @Post()
   create(@Body() createBodyDto:CreateCoffeeDto){
+    console.log(createBodyDto instanceof CreateCoffeeDto)
     return this.coffeeService.create(createBodyDto)
   }
   @Patch(':id')

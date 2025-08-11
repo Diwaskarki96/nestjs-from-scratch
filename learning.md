@@ -61,3 +61,6 @@ A hands-on repository to explore and practice the fundamentals of NestJS — fro
   }))
 
 # Docker
+   1. Create a yml file: `docker-compose.yml`  
+   - Run the command `docker-compose up -d`. It is the command to start your services in detached mode — meaning they’ll run in the background without blocking your terminal.
+

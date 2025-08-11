@@ -64,3 +64,15 @@ A hands-on repository to explore and practice the fundamentals of NestJS — fro
    1. Create a yml file: `docker-compose.yml`  
    - Run the command `docker-compose up -d`. It is the command to start your services in detached mode — meaning they’ll run in the background without blocking your terminal.
 
+# ORM
+  - npm i @nestjs/typeorm typeorm pg
+  ORM stands for Object-Relational Mapping.
+
+In simple terms:
+It’s a tool or technique that lets you talk to your database using objects in your programming language instead of writing raw SQL queries.
+
+Think of it like this:
+
+- Without ORM: You tell the database directly what to do with SQL (SELECT * FROM users WHERE id = 1).
+
+- With ORM: You interact with your data as if they were normal objects in your code (User.find(1)), and the ORM translates that into SQL for you.

@@ -76,3 +76,12 @@ Think of it like this:
 - Without ORM: You tell the database directly what to do with SQL (SELECT * FROM users WHERE id = 1).
 
 - With ORM: You interact with your data as if they were normal objects in your code (User.find(1)), and the ORM translates that into SQL for you.
+
+# Entity
+In ORM, an Entity is basically a class that represents a table in your database.
+
+- Each property of the class = a column in the table.
+
+- Each instance of the class = a row in the table.
+
+-  @PrimaryGeneratedColumn() = Auto-increment primary key

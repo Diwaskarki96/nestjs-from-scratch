@@ -85,3 +85,6 @@ In ORM, an Entity is basically a class that represents a table in your database.
 - Each instance of the class = a row in the table.
 
 -  @PrimaryGeneratedColumn() = Auto-increment primary key
+
+# @InjectRepository() 
+“NestJS, please give me the database helper for this table so I can use it in my class.”

@@ -2,8 +2,9 @@ import { HttpException, HttpStatus, Injectable, NotFoundException } from '@nestj
 import { Coffee } from './entites/coffee.entity';
 import { UpdateCoffeeDto } from './dto/update-coffee.dto';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { LimitOnUpdateNotSupportedError, Repository } from 'typeorm';
 import { CreateCoffeeDto } from './dto/create-coffee.dto';
+import { PaginationQueryDto } from 'src/common/dto/pagination-query.dto/pagination-query.dto';
 
 @Injectable()
 export class CoffeesService {
@@ -13,9 +14,13 @@ export class CoffeesService {
         private readonly coffeeRepository: Repository<Coffee>,
     ) {}
 
-    findAll() {
+    findAll(paginationQuery:PaginationQueryDto) {
+        const {limit,offset}=paginationQuery
         return this.coffeeRepository.find({
-            relations:['flavors']
+            relations:['flavors'],
+            skip:offset,
+            take:limit
+
         });
     }
    async findOne(id: number) {
@@ -23,7 +28,7 @@ export class CoffeesService {
         if(!coffee){
             // throw new HttpException(`Coffee ${id} not found`, HttpStatus.NOT_FOUND);
             //Better practice
-            throw new NotFoundException(`Coffee ${id} not found`);
+            throw new NotFoundException(`Coffee ${id} not found`); 
         }
         return coffee;
     }

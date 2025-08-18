@@ -6,7 +6,7 @@ export class Coffee{
     @PrimaryGeneratedColumn()
     id?: number;
     @Column()
-    name: string;
+    title: string;
     @Column()
     brand: string;
     // @Column("json", {nullable:true })

@@ -88,3 +88,6 @@ In ORM, an Entity is basically a class that represents a table in your database.
 
 # @InjectRepository() 
 “NestJS, please give me the database helper for this table so I can use it in my class.”
+
+# Migration
+    - npx typeorm migration:create src/migrations/CoffeeRefactor (Path)

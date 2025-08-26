@@ -110,3 +110,52 @@ In ORM, an Entity is basically a class that represents a table in your database.
     - npx typeorm migration:create src/migrations/CoffeeRefactor (Path)
     (Run migration)
     - npx typeorm migration:run -d dist/typeorm.config.js
+
+# Custom providers
+
+In NestJS, a provider is just something you can inject (like a service, value, or object).
+Custom providers = special ways to create providers.
+
+There are 4 main types:
+
+1. useValue → give a fixed value
+   - {
+     provide: 'API_KEY',
+     useValue: '123456'
+     }
+
+➡️ Always gives "123456" when injected.
+
+1. useClass → use another class instead
+   - {
+     provide: 'CONFIG',
+     useClass: MockConfigService
+     }
+
+➡️ When you ask for 'CONFIG', Nest will give you MockConfigService.
+
+1. useFactory → create with a function
+   - {
+     provide: 'TOKEN',
+     useFactory: () => Math.random()
+     }
+
+➡️ Runs the function and gives the result (e.g., a random number).
+
+4. useExisting → alias another provider
+   - {
+     provide: 'LOGGER',
+     useExisting: LoggerService
+     }
+
+➡️ 'LOGGER' is just another name for LoggerService.
+
+👉 In short:
+
+useValue = give a value
+
+useClass = give a class
+
+useFactory = give result of a function
+
+useExisting = give an alias
